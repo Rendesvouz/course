@@ -1,49 +1,94 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
+    // Add a class to the body to indicate JS is enabled and animations can run.
+    document.body.classList.add('js-enabled');
 
-    // --- RESPONSIVE NAVBAR TOGGLE ---
-    const menu = document.querySelector('#mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
-
-    const toggleMenu = () => {
-        if (navMenu.style.display === 'flex') {
-            navMenu.style.display = 'none';
-        } else {
-            navMenu.style.display = 'flex';
-            navMenu.style.flexDirection = 'column';
-            navMenu.style.position = 'absolute';
-            navMenu.style.top = '80px';
-            navMenu.style.left = '0';
-            navMenu.style.width = '100%';
-            navMenu.style.background = 'rgba(16, 16, 42, 0.95)';
-            navMenu.style.padding = '2rem 0';
-        }
-    };
-
-    if (menu) {
-        menu.addEventListener('click', toggleMenu);
+    // --- DYNAMIC COPYRIGHT YEAR ---
+    const yearSpan = document.getElementById('year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
     }
 
-    // --- ON-SCROLL ANIMATIONS ---
-    const sectionsToAnimate = document.querySelectorAll('.pricing');
+    // --- SCROLL ANIMATIONS ---
+    const animatedElements = document.querySelectorAll(".fade-in");
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // Animate child cards
-                const cards = entry.target.querySelectorAll('.glass-card');
-                cards.forEach((card, index) => {
-                    card.style.animationDelay = `${index * 0.2}s`;
-                    card.classList.add('fadeInUp');
-                });
-                observer.unobserve(entry.target);
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+    } else {
+        animatedElements.forEach(element => {
+            element.classList.add("visible");
+        });
+    }
+
+    // --- NEWSLETTER FORM --- //
+    const newsletterForm = document.getElementById('newsletter-form');
+    if(newsletterForm) {
+        const emailInput = document.getElementById('newsletter-email');
+        const submitButton = document.getElementById('newsletter-submit');
+        const successMessage = document.getElementById('newsletter-success');
+        const errorMessage = document.getElementById('newsletter-error');
+
+        // Load Klaviyo script
+        const script = document.createElement('script');
+        script.src = 'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=VqtvXZ';
+        script.async = true;
+        document.head.appendChild(script);
+        window._learnq = window._learnq || [];
+
+        newsletterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!emailInput.value) return;
+
+            submitButton.textContent = 'Subscribing...';
+            submitButton.disabled = true;
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+
+            try {
+                // Using Fetch API to submit to Klaviyo is complex due to CORS.
+                // Instead, we will rely on the Klaviyo script's built-in functionality.
+
+                // Identify the user and track the subscription event
+                window._learnq.push(['identify', { '$email': emailInput.value }]);
+                window._learnq.push(['track', 'Newsletter Subscription', {
+                    '$email': emailInput.value,
+                    'source': 'footer_newsletter',
+                    'timestamp': new Date().toISOString()
+                }]);
+
+                // Simulate a short delay to allow the tracking event to be sent
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                successMessage.style.display = 'block';
+                emailInput.value = '';
+
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+
+            } catch (error) {
+                errorMessage.style.display = 'block';
+                console.error('Subscription error:', error);
+
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            } finally {
+                submitButton.textContent = 'Subscribe';
+                submitButton.disabled = false;
             }
         });
-    }, { threshold: 0.1 });
-
-    sectionsToAnimate.forEach(section => {
-        if (section) {
-            observer.observe(section);
-        }
-    });
+    }
 });
