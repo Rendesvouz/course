@@ -31,10 +31,10 @@
               Subscribe
             </button>
           </form>
-          <p class="text-sm text-gray-400 mt-2">
+          <!-- <p class="text-sm text-gray-400 mt-2">
             By subscribing you agree to our 
             <a href="/privacy-policy" class="text-primary-400 hover:underline">Privacy Policy</a>
-          </p>
+          </p> -->
         </div>
       </div>
       
@@ -72,7 +72,7 @@
         <div>
           <h3 class="font-bold mb-4">Quick Links</h3>
           <ul class="space-y-2 text-gray-400">
-            <li><a href="/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <!-- <li><a href="/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a></li> -->
             <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
             <li><a href="#" class="hover:text-white transition-colors">Cookie Policy</a></li>
           </ul>
