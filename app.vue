@@ -1,13 +1,5 @@
 <template>
-  <div>
-    <Navbar />
-    <Hero />
-    <Courses />
-    <Audience />
-    <Testimonials />
-    <Pricing />
-    <Footer />
-  </div>
+  <NuxtPage />
 </template>
 
 <script setup>
