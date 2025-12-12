@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "nuxi generate --fail-on-error false",
+    "start": "serve dist",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
