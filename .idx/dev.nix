@@ -11,6 +11,8 @@
       "Vue.volar"
       "esbenp.prettier-vscode" 
       "streetsidesoftware.code-spell-checker"
+      "bradlc.vscode-tailwindcss"
+      "google.gemini-cli-vscode-ide-companion"
     ];
 
    

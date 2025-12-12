@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-rendezvous-red: oklch(0.46 0.27 29);
+  /* --color-rendezvous-red-hover: oklch(0.46 0.27 29); */
+}
 
 .fade-in {
   animation: fadeIn 1s ease-in-out;

@@ -11,7 +11,7 @@
           </p>
         </div>
         
-        <div class="bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl fade-in">
+        <div class="bg-linear-to-br from-primary-600 to-primary-800 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl fade-in">
           <h3 class="text-2xl md:text-3xl font-bold mb-8">
             Don't let this December pass like the others. You either change your income story now — or repeat the same struggle in January.
           </h3>

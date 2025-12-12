@@ -1,6 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
-  devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss'],
-  css: ['~/assets/css/tailwind.css']
+  devtools: { enabled: false },
+  css: ['~/Main.css'],
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+  },
 })

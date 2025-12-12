@@ -2,7 +2,6 @@
   <div>
     <Navbar />
     <Hero />
-    <Hook />
     <Courses />
     <Audience />
     <Testimonials />
@@ -13,14 +12,6 @@
 </template>
 
 <script setup>
-import Navbar from './components/Navbar.vue'
-import Hero from './components/Hero.vue'
-import Hook from './components/Hook.vue'
-import Courses from './components/Courses.vue'
-import Audience from './components/Audience.vue'
-import Testimonials from './components/Testimonials.vue'
-import Enroll from './components/Enroll.vue'
-import Footer from './components/Footer.vue'
 
 useHead({
   link: [
