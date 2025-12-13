@@ -65,12 +65,12 @@
               </div>
 
               <!-- CTA Button -->
-              <a
-                :href="course.link"
+              <NuxtLink
+                :to="'/courses/' + course.slug"
                 class="bg-rendezvous-red hover:bg-rendezvous-red-hover text-white px-6 py-2 rounded-full font-semibold transition-colors duration-200 uppercase tracking-wide shadow-md hover:shadow-lg"
               >
                 Get Access
-              </a>
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -79,42 +79,8 @@
   </section>
 </template>
 
-
 <script setup lang="ts">
 const { observeElements } = useScrollAnimation();
 onMounted(() => observeElements());
-
-const courses = [
-  {
-    title: "Email Marketing Automation Using Zoho",
-    description:
-      "Build automated income funnels, send campaigns that convert on autopilot, and learn how top earners follow up without stress. This is how money works while you sleep.",
-    image: "https://placehold.co/600x400/fdf2f2/bc0c34?text=Email+Automation",
-    link: "#enroll-email", // Added a link property for the CTA
-    cta: "Give Me Access",
-    rating: "4.8",
-    shortTitle: "Email",
-  },
-  {
-    title: "Lead Generation Using Scrappy",
-    description:
-      "Learn how to find ready-to-buy prospects daily, stop begging people to buy, and build a real list of interested buyers. No leads = no money. This fixes that.",
-    image: "https://placehold.co/600x400/fdf2f2/bc0c34?text=Lead+Generation",
-    link: "#enroll-lead", // Added a link property for the CTA
-    cta: "Get Access",
-    rating: "4.9",
-    shortTitle: "Lead",
-  },
-  {
-    title: "Social Media Automation Using Zoho Socials",
-    description:
-      "Post across all platforms at once, stay consistent without stress, and turn your social media into a daily sales machine. No more burnout. Let automation work for you.",
-    image:
-      "https://placehold.co/600x400/fdf2f2/bc0c34?text=Social+Media+Automation",
-    link: "#enroll-social", // Added a link property for the CTA
-    cta: "Join Now",
-    rating: "4.7",
-    shortTitle: "Social",
-  },
-];
+const { courses } = useCourses();
 </script>

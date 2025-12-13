@@ -14,6 +14,15 @@
       "bradlc.vscode-tailwindcss"
       "google.gemini-cli-vscode-ide-companion"
     ];
+    workspace = {
+      onCreate = {
+        npm-install = "npm install";
+
+      };
+      onStart = {
+        dev = "npm run dev";
+      };
+    };
 
    
   };

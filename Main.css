@@ -2,7 +2,8 @@
 
 @theme {
   --color-rendezvous-red: oklch(0.46 0.27 29);
-  /* --color-rendezvous-red-hover: oklch(0.46 0.27 29); */
+  --color-rendezvous-red-soft: oklch(0.55 0.22 29);
+  
 }
 
 .fade-in {
