@@ -18,12 +18,12 @@
             you can start too.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 mb-4">
-            <a
-              href="#enroll"
+            <NuxtLink
+              to="/courses"
               class="bg-rendezvous-red text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 text-center shadow-lg"
             >
               START EARNING THIS DECEMBER
-            </a>
+            </NuxtLink>
           </div>
           <p class="text-sm text-gray-500">
             Instant Access • Beginner Friendly • Limited Slots
