@@ -1,10 +1,10 @@
 export const useCourses = () => {
   const courses = [
     {
-      slug: 'email-marketing-automation',
-      title: "Email Marketing Automation Using Zoho",
-      description:
-        "Build automated income funnels, send campaigns that convert on autopilot, and learn how top earners follow up without stress. This is how money works while you sleep.",
+      slug: 'zoho-campaign-mastery',
+      title: "Zoho Campaign Mastery",
+      description:"Learn how to build, automate, and optimize high-converting email campaigns using Zoho Campaigns.Segment audiences, run smart follow-ups, and let your email marketing work consistently without manual effort.",
+        
       image: "https://placehold.co/600x400/fdf2f2/bc0c34?text=Email+Automation",
       rating: "4.8",
       shortTitle: "Email",
@@ -13,7 +13,8 @@ export const useCourses = () => {
         "The secret to writing compelling email copy that converts.",
         "Using Zoho Campaigns to track and optimize your funnels.",
         "Building a hands-free system that generates income 24/7."
-      ]
+      ],
+      paymentLink: 'https://paystack.com/buy/email-marketing-automation-using-zoho-gcwpua'
     },
     {
       slug: 'lead-generation',
@@ -28,24 +29,25 @@ export const useCourses = () => {
         "How to use Scrappy.io to automate prospect gathering.",
         "Crafting outreach messages that get replies.",
         "Building a sustainable lead pipeline for any business."
-      ]
+      ], 
+      paymentLink: 'https://paystack.com/buy/lead-generation-using-scrappy-ywoarr'
     },
-    {
-      slug: 'social-media-automation',
-      title: "Social Media Automation Using Zoho Socials",
-      description:
-        "Post across all platforms at once, stay consistent without stress, and turn your social media into a daily sales machine. No more burnout. Let automation work for you.",
-      image:
-        "https://placehold.co/600x400/fdf2f2/bc0c34?text=Social+Media+Automation",
-      rating: "4.7",
-      shortTitle: "Social",
-      whatYouWillLearn: [
-        "How to schedule a month of content in a single afternoon.",
-        "Using Zoho Social to analyze what's working and what's not.",
-        "Engaging with your audience on autopilot.",
-        "Turning your social profiles into a consistent source of sales."
-      ]
-    },
+    // {
+    //   slug: 'social-media-automation',
+    //   title: "Social Media Automation Using Zoho Socials",
+    //   description:
+    //     "Post across all platforms at once, stay consistent without stress, and turn your social media into a daily sales machine. No more burnout. Let automation work for you.",
+    //   image:
+    //     "https://placehold.co/600x400/fdf2f2/bc0c34?text=Social+Media+Automation",
+    //   rating: "4.7",
+    //   shortTitle: "Social",
+    //   whatYouWillLearn: [
+    //     "How to schedule a month of content in a single afternoon.",
+    //     "Using Zoho Social to analyze what's working and what's not.",
+    //     "Engaging with your audience on autopilot.",
+    //     "Turning your social profiles into a consistent source of sales."
+    //   ]
+    // },
   ];
 
   return {

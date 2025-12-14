@@ -79,11 +79,13 @@
                   </div>
                 </div>
 
-                <button
-                  class="w-full bg-rendezvous-red hover:bg-rendezvous-red-hover text-white py-4 rounded-xl font-semibold text-lg transition shadow-lg"
+                <a
+                  :href="course.paymentLink"
+                  target="_blank"
+                  class="block w-full bg-rendezvous-red hover:bg-rendezvous-red-hover text-white py-4 rounded-xl font-semibold text-lg transition shadow-lg text-center"
                 >
                   Get instant access
-                </button>
+                </a>
 
                 <div class="text-center text-xs text-gray-500">
                   30-day money-back guarantee · Secure checkout
