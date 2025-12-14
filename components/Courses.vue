@@ -18,11 +18,11 @@
       </div>
 
       <!-- Cards Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div class="flex flex-wrap justify-center gap-10">
         <div
           v-for="course in courses"
           :key="course.title"
-          class="bg-white rounded-3xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col"
+          class="bg-white rounded-3xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col w-full max-w-md"
         >
           <!-- Image -->
           <div class="relative h-52 w-full overflow-hidden rounded-t-3xl shrink-0">
