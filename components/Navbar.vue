@@ -23,6 +23,15 @@
         <ul class="hidden md:flex items-center space-x-8">
           <li>
             <NuxtLink
+              to="/"
+              class="text-gray-600 hover:text-rendezvous-red font-medium transition-colors"
+              active-class="text-rendezvous-red"
+            >
+              Home
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink
               to="/courses"
               class="bg-rendezvous-red text-white px-6 py-2.5 rounded-full font-semibold transition-transform hover:scale-105"
             >
@@ -37,7 +46,15 @@
         v-if="isMenuOpen"
         class="md:hidden mt-2 pb-4 border-t border-gray-200"
       >
-        <ul class="space-y-4">
+        <ul class="space-y-4 pt-4">
+          <li>
+            <NuxtLink
+              to="/"
+              @click="closeMenu"
+              class="block text-center text-gray-700 hover:text-rendezvous-red py-2 font-medium"
+              >Home</NuxtLink
+            >
+          </li>
           <li>
             <NuxtLink
               to="/courses"
@@ -57,8 +74,6 @@
 import { ref } from "vue";
 
 const isMenuOpen = ref(false);
-
-const navItems = [];
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;

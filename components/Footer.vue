@@ -1,8 +1,8 @@
 <template>
-  <footer class="bg-gray-900 text-white py-16">
+  <footer class="bg-gray-900 text-white py-12 sm:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Newsletter -->
-      <div class="flex flex-col md:flex-row gap-8 mb-16">
+      <div class="flex flex-col md:flex-row gap-8 mb-12 md:mb-16">
         <div class="flex-1">
           <h2 class="text-2xl font-bold mb-2">Subscribe to our newsletter</h2>
           <p class="text-gray-400">Never miss out on important updates, subscribe to our Newsletter today!</p>
@@ -16,7 +16,7 @@
         </div>
         
         <div class="flex-1">
-          <form @submit.prevent="handleSubmit" class="flex gap-2">
+          <form @submit.prevent="handleSubmit" class="flex flex-col sm:flex-row gap-2">
             <input 
               v-model="email"
               type="email" 
@@ -31,15 +31,11 @@
               Subscribe
             </button>
           </form>
-          <!-- <p class="text-sm text-gray-400 mt-2">
-            By subscribing you agree to our 
-            <a href="/privacy-policy" class="text-primary-400 hover:underline">Privacy Policy</a>
-          </p> -->
         </div>
       </div>
       
       <!-- Footer Links -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 md:mb-12">
         <div>
           <img 
             src="/assets/Logo-white-tagline.png" 
@@ -53,7 +49,8 @@
         
         <div>
           <h3 class="font-bold mb-4">Rendezvous</h3>
-          <ul class="space-y-2 text-gray-400">
+          <ul class="space-y-2 text-gray-400 text-sm sm:text-base">
+            <li><NuxtLink to="/" class="hover:text-white transition-colors">Home</NuxtLink></li>
             <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
             <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
             <li><a href="#" class="hover:text-white transition-colors">FAQs</a></li>
@@ -61,18 +58,17 @@
         </div>
         
         <div>
-          <h3 class="font-bold mb-4">Rendezvous</h3>
-          <ul class="space-y-2 text-gray-400">
+          <h3 class="font-bold mb-4">Courses</h3>
+          <ul class="space-y-2 text-gray-400 text-sm sm:text-base">
+            <li><NuxtLink to="/courses" class="hover:text-white transition-colors">All Courses</NuxtLink></li>
             <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
             <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Events</a></li>
           </ul>
         </div>
         
         <div>
           <h3 class="font-bold mb-4">Quick Links</h3>
-          <ul class="space-y-2 text-gray-400">
-            <!-- <li><a href="/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a></li> -->
+          <ul class="space-y-2 text-gray-400 text-sm sm:text-base">
             <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
             <li><a href="#" class="hover:text-white transition-colors">Cookie Policy</a></li>
           </ul>
@@ -83,11 +79,11 @@
       
       <!-- Footer Bottom -->
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-gray-400 text-sm">
+        <p class="text-gray-400 text-sm text-center md:text-left">
           © Copyright {{ currentYear }} • All Rights Reserved by Rendezvous
         </p>
         
-        <div class="flex gap-4">
+        <div class="flex gap-4 flex-wrap justify-center">
           <a 
             v-for="social in socials" 
             :key="social.name"
@@ -106,6 +102,8 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
 const email = ref('')
 const showSuccess = ref(false)
 const showError = ref(false)
