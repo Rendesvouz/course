@@ -22,28 +22,28 @@
         <div
           v-for="course in courses"
           :key="course.title"
-          class="bg-white rounded-3xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col w-full max-w-md"
+          class="bg-white rounded-3xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col w-full max-w-sm"
         >
           <!-- Image -->
-          <div class="relative h-52 w-full overflow-hidden rounded-t-3xl shrink-0">
-            <img
-              :src="course.image"
-              :alt="course.title"
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-            />
-            <!-- Rating Badge -->
-            <div
-              class="absolute top-3 left-3 bg-yellow-400 text-gray-900 px-3 py-1 text-xs font-semibold rounded-full shadow-md flex items-center gap-1"
-            >
-              ⭐ {{ course.rating }}
+          <NuxtLink :to="'/courses/' + course.slug">
+            <div class="relative h-52 w-full overflow-hidden rounded-t-3xl shrink-0">
+              <img
+                :src="course.image"
+                :alt="course.title"
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+              <div
+                class="absolute top-3 left-3 bg-yellow-400 text-gray-900 px-3 py-1 text-xs font-semibold rounded-full shadow-md flex items-center gap-1"
+              >
+                ⭐ {{ course.rating }}
+              </div>
+              <div
+                class="absolute bottom-0 left-0 w-full bg-linear-to-t from-black/40 to-transparent p-4"
+              >
+                <h4 class="text-white text-lg font-semibold">{{ course.shortTitle }}</h4>
+              </div>
             </div>
-            <!-- Short Title Overlay -->
-            <div
-              class="absolute bottom-0 left-0 w-full bg-linear-to-t from-black/40 to-transparent p-4"
-            >
-              <h4 class="text-white text-lg font-semibold">{{ course.shortTitle }}</h4>
-            </div>
-          </div>
+          </NuxtLink>
 
           <!-- Content -->
           <div class="p-6 flex flex-col flex-1">
@@ -51,27 +51,26 @@
               {{ course.title }}
             </h3>
             <p
-              class="text-gray-600 text-sm sm:text-base mb-6 leading-relaxed line-clamp-3"
+              class="text-gray-600 text-sm sm:text-base mb-6 leading-relaxed line-clamp-3 grow"
             >
               {{ course.description }}
             </p>
 
             <!-- Bottom row: pricing + button -->
-            <div class="flex items-center justify-between mt-auto">
-              <!-- Pricing -->
-              <div class="flex items-center space-x-2">
-                <span class="text-gray-400 line-through text-sm">₦22,000</span>
-                <span class="text-red-600 font-bold text-lg sm:text-xl">₦15,000</span>
+            <div class="mt-auto pt-4 border-t border-gray-100">
+                <div class="flex justify-between items-center">
+                  <div class="flex items-baseline gap-2">
+                    <span class="text-2xl font-bold text-rendezvous-red">₦15,000</span>
+                    <!-- <span class="text-md text-gray-500 line-through">₦22,000</span> -->
+                  </div>
+                  <NuxtLink
+                    :to="'/courses/' + course.slug"
+                    class="bg-rendezvous-red hover:bg-rendezvous-red-hover text-white px-5 py-2 rounded-full font-semibold transition-colors duration-200 uppercase tracking-wide text-xs shadow-md hover:shadow-lg"
+                  >
+                    Get Access
+                  </NuxtLink>
+                </div>
               </div>
-
-              <!-- CTA Button -->
-              <NuxtLink
-                :to="'/courses/' + course.slug"
-                class="bg-rendezvous-red hover:bg-rendezvous-red-hover text-white px-6 py-2 rounded-full font-semibold transition-colors duration-200 uppercase tracking-wide shadow-md hover:shadow-lg"
-              >
-                Get Access
-              </NuxtLink>
-            </div>
           </div>
         </div>
       </div>

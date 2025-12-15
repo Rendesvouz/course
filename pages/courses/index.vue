@@ -11,12 +11,13 @@
         </h1>
 
         <div class="flex flex-wrap justify-center gap-10">
-          <div
+          <NuxtLink
             v-for="course in courses"
             :key="course.slug"
-            class="bg-white rounded-3xl shadow-md overflow-hidden transform hover:scale-105 hover:shadow-xl transition-all duration-300 max-w-md"
+            :to="'/courses/' + course.slug"
+            class="bg-white rounded-3xl shadow-md overflow-hidden transform hover:scale-105 hover:shadow-xl transition-all duration-300 max-w-md flex flex-col"
           >
-            <NuxtLink :to="'/courses/' + course.slug" class="block relative">
+            <div class="relative">
               <img
                 :src="course.image"
                 :alt="course.title"
@@ -25,9 +26,9 @@
               <div
                 class="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent"
               ></div>
-            </NuxtLink>
+            </div>
 
-            <div class="p-6">
+            <div class="p-6 flex flex-col grow">
               <h2 class="text-2xl font-semibold text-gray-900 mb-2">
                 {{ course.title }}
               </h2>
@@ -35,18 +36,16 @@
                 {{ course.description }}
               </p>
 
-              <div class="flex justify-between items-center">
-                <span
-                  class="text-lg font-bold text-rendezvous-red bg-red-100 px-3 py-1 rounded-full"
-                >
-                  ₦15,000
-                </span>
-                <span class="text-sm text-gray-500 font-medium"
-                  >View Details &rarr;</span
-                >
+              <div class="mt-auto pt-4 border-t border-gray-100">
+                <div class="flex justify-between items-center">
+                  <div class="flex items-baseline gap-2">
+                    <span class="text-2xl font-bold text-rendezvous-red">₦15,000</span>
+                    <span class="text-md text-gray-500 line-through">₦22,000</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </NuxtLink>
         </div>
       </div>
     </section>
