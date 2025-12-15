@@ -14,7 +14,7 @@ export const useCourses = () => {
         "Using Zoho Campaigns to track and optimize your funnels.",
         "Building a hands-free system that generates income 24/7."
       ],
-      paymentLink: 'https://paystack.com/buy/email-marketing-automation-using-zoho-gcwpua'
+      paymentLink: 'https://paystack.com/buy/zoho-campaign-mastery-feietz'
     },
     {
       slug: 'lead-generation',
